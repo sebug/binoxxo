@@ -114,8 +114,9 @@ def explore_prime(i, j, grid, flip_grid, l):
             flip_grid[j][i] = 'O'
             res_after = explore_prime(next_i, next_j, grid, flip_grid, l)
             if res_after == False:
-                print "Did not manage to get a result"
-                return grid
+                grid[i][j] = ' '
+                flip_grid[j][i] = ' '
+                return False
             else:
                 return res_after
 
