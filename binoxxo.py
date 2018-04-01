@@ -13,6 +13,32 @@ grid_1 = [
     ['O', ' ', 'O', ' ', ' ', 'X', ' ', ' ', 'X', 'X']
 ]
 
+grid_2 = [
+    [' ', ' ', ' ', 'X', 'O', ' ', ' ', ' ', ' ', ' '],
+    [' ', 'X', ' ', ' ', ' ', ' ', 'O', ' ', 'X', ' '],
+    [' ', ' ', 'X', ' ', ' ', ' ', ' ', 'O', ' ', 'X'],
+    [' ', ' ', ' ', ' ', ' ', ' ', 'X', ' ', ' ', ' '],
+    ['O', 'O', ' ', 'X', ' ', 'O', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', 'O', ' ', ' '],
+    ['O', 'O', ' ', ' ', 'X', ' ', 'O', ' ', ' ', ' '],
+    [' ', ' ', 'O', 'O', ' ', ' ', ' ', ' ', ' ', 'X'],
+    [' ', ' ', ' ', ' ', ' ', ' ', 'O', ' ', 'O', ' '],
+    [' ', ' ', 'O', ' ', ' ', ' ', ' ', 'X', ' ', ' ']
+    ]
+
+empty_grid = [
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    ]
+
 def get_line(l):
     return "".join(l)
 
@@ -84,6 +110,8 @@ def explore_prime(i, j, grid, flip_grid, l):
         return False
     if not no_row_with_more_than_half(grid):
         return False
+    if not no_row_with_more_than_half(flip_grid):
+        return False
     if not never_more_than_two_per_row(grid):
         return False
     if not never_more_than_two_per_row(flip_grid):
@@ -138,6 +166,8 @@ if __name__ == '__main__':
     # print row_eq([' '],[' ']) # false
     # print any_row_eq(grid_1) # false
 
-    pretty_print(explore(0, 0, grid_1))
+    # pretty_print(explore(0, 0, grid_1))
+
+    pretty_print(explore(0, 0, grid_2))
 
 
